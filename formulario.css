@@ -1,11 +1,11 @@
-/* Reset Básico para melhor consistência em diferentes navegadores */
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho do elemento */
+    box-sizing: border-box; 
 }
 
-/* Estilos Gerais e do Corpo da Página (sem alteração) */
+
 body, html {
     margin: 0;
     padding: 0;
@@ -22,26 +22,22 @@ body, html {
     overflow: hidden;
 }
 
-/* ... (todos os outros estilos de .background-image, #navbar, #description, #footer continuam os mesmos) ... */
 
-/* ESTILOS DA GALERIA ANTIGA REMOVIDOS */
-
-/* NOVO: Estilo para posicionar o Carrossel do Bootstrap */
 #carousel-wrapper {
-    width: 380px;  /* Largura do contêiner */
-    height: 330px; /* Altura do contêiner */
+    width: 380px;  
+    height: 330px; 
     left: 100px;
     top: 576px;
     position: absolute;
 }
 
-/* Opcional: Ajuste para garantir que as imagens do carrossel preencham o contêiner */
+
 #carousel-wrapper .carousel,
 #carousel-wrapper .carousel-inner,
 #carousel-wrapper .carousel-item,
 #carousel-wrapper .carousel-item img {
     height: 100%;
-    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    object-fit: cover;
 }
 
-/* ... (Cole aqui os outros estilos que não foram alterados: #navbar, #description, #footer, etc.) ... */
+
