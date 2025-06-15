@@ -1,147 +1,137 @@
-/* Reset Básico para melhor consistência em diferentes navegadores */
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho do elemento */
+    box-sizing: border-box; 
 }
 
 body {
-    font-family: 'Inter', sans-serif; /* Aplica a fonte Inter a todo o corpo do documento */
-    overflow-x: hidden; /* Evita a barra de rolagem horizontal se algum elemento exceder a largura */
+    font-family: 'Inter', sans-serif; 
+    overflow-x: hidden; 
     
-    /* --- Adições para o Footer Fixo --- */
-    display: flex; /* Transforma o body em um container flexível */
-    flex-direction: column; /* Organiza os filhos do body em uma coluna (topo para baixo) */
-    min-height: 100vh; /* Garante que o body ocupe no mínimo 100% da altura da viewport */
+   
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
 }
 
-/* --- Container Principal --- */
+
 .container {
-    width: 1440px; /* Largura fixa para replicar o design do Figma */
-    position: relative; /* Mantém relative para elementos absolutos dentro dele */
-    background: #383232; /* Cor de fundo principal */
-    margin: 0 auto; /* Centraliza o container na página */
-    height: auto; /* Permite que o container se ajuste à altura do seu conteúdo */
+    width: 1440px; 
+    position: relative; 
+    background: #383232; 
+    margin: 0 auto; 
+    height: auto; 
     
-    /* --- Adição para o Footer Fixo --- */
-    flex-grow: 1; /* Permite que o container principal cresça e ocupe todo o espaço disponível, empurrando o footer */
+    flex-grow: 1; 
     
-    /* REMOVED: padding-bottom, as flexbox handles pushing the footer now */
-    /* REMOVED: display: flex; flex-direction: column; from .container directly.
-               Instead, let its children (header, nav, main-content) define its height
-               unless the container itself needs to be a flex parent for its direct children.
-               Given your structure, main-content will need to manage its height. */
+    
 }
 
-/* --- Header (Seção superior com a imagem grande de fundo) --- */
+
 .header {
-    width: 100%; /* Ocupa toda a largura do container */
-    height: 480px; /* Altura da área do cabeçalho, ajuste se a imagem tiver outra proporção */
-    position: relative; /* Para a imagem de fundo ser posicionada dentro dela */
-    overflow: hidden; /* Garante que a imagem não vaze */
+    width: 100%; 
+    height: 480px; 
+    position: relative;
+    overflow: hidden; 
 }
 
 .header-main-image {
     width: 100%;
-    height: 100%; /* Preenche a altura do header */
-    object-fit: cover; /* Redimensiona a imagem para cobrir a área, cortando se necessário */
-    object-position: center bottom; /* Posiciona a parte inferior da imagem visível */
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center bottom; 
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; /* Garante que a imagem esteja no fundo */
+    z-index: 1; 
 }
 
-/* --- Navigation Bar (Barra de navegação abaixo do header) --- */
+
 .navigation-bar {
-    width: 100%; /* Ocupa toda a largura do container */
-    height: 89.35px; /* Altura da barra de navegação */
-    background: #F5E1BE; /* Cor de fundo clara da barra de navegação */
-    position: relative; /* Essencial para que a barra de navegação fique abaixo do header */
-    z-index: 10; /* Garante que a nav fique acima de outros elementos se houver sobreposição */
-    display: flex; /* Habilita o Flexbox para alinhamento horizontal */
-    align-items: center; /* Centraliza os itens verticalmente */
-    justify-content: flex-start; /* Alinha o logo e a navegação ao início */
-    padding: 0 20px; /* Espaçamento interno nas laterais */
+    width: 100%;
+    height: 89.35px; 
+    background: #F5E1BE; 
+    position: relative; 
+    z-index: 10; 
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start; 
+    padding: 0 20px;
 }
 
 .logo-barbershop {
-    width: 91.23px; /* Largura do logo */
-    height: 91.23px; /* Altura do logo */
-    border-radius: 50%; /* Faz o logo aparecer redondo */
-    object-fit: contain; /* Garante que o logo caiba dentro do seu espaço sem ser cortado */
-    margin-right: 50px; /* Espaçamento à direita do logo para os itens de navegação */
+    width: 91.23px; 
+    height: 91.23px; 
+    border-radius: 50%; 
+    object-fit: contain; 
+    margin-right: 50px; 
 }
 
 .main-nav-list {
-    list-style: none; /* Remove os marcadores de lista padrão */
-    display: flex; /* Transforma os itens da lista em uma linha horizontal */
-    align-items: center; /* Centraliza os itens da lista verticalmente */
+    list-style: none; 
+    display: flex; 
+    align-items: center; 
 }
 
 .main-nav-list li {
-    position: relative; /* Para posicionar a linha divisória dentro de cada item */
+    position: relative; 
 }
 
-/* Pseudo-elemento para criar as linhas divisórias verticais entre os links */
+
 .main-nav-list li:not(:last-child)::after {
-    content: ''; /* Conteúdo vazio para criar a linha */
+    content: ''; 
     position: absolute;
-    right: 0; /* Posiciona a linha à direita do item 'li' */
-    top: 50%; /* Centraliza a linha verticalmente */
-    transform: translateY(-50%); /* Ajuste fino para o centro exato */
-    width: 1px; /* Espessura da linha */
-    height: 40px; /* Altura da linha, ajuste conforme o design */
-    background-color: #A08B7A; /* Cor da linha divisória */
-    margin-left: 20px; /* Espaço entre o texto do link e a linha */
+    right: 0; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 1px; 
+    height: 40px;
+    background-color: #A08B7A; 
+    margin-left: 20px; 
 }
 
 .nav-link {
-    display: block; /* Faz o link ocupar todo o espaço do li, tornando a área clicável maior */
-    padding: 0 40px; /* Espaçamento interno para cada item de navegação */
-    color: #3A1010; /* Cor do texto dos links */
+    display: block; 
+    padding: 0 40px; 
+    color: #3A1010; 
     font-size: 36px;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    text-decoration: none; /* Remove o sublinhado padrão dos links */
-    white-space: nowrap; /* Impede que o texto do link quebre em várias linhas */
-    text-transform: lowercase; /* Transforma o texto para minúsculas, como no seu print */
-    transition: color 0.3s ease; /* Transição suave para o efeito hover */
+    text-decoration: none; 
+    white-space: nowrap;
+    text-transform: lowercase;
+    transition: color 0.3s ease; 
 }
 
 .nav-link:hover {
-    color: #930E0E; /* Cor do texto ao passar o mouse */
+    color: #930E0E;
 }
 
-/* --- Main Content (Os elementos que vêm depois do cabeçalho e navegação) --- */
 .main-content {
-    position: relative; /* Para posicionar elementos internos de forma absoluta dentro dele */
+    position: relative; 
     width: 100%;
-    /* Crucial: Defina uma altura mínima para o main-content que acomode seus elementos absolutos,
-       ou remova os absolutos e deixe-os fluir normalmente.
-       Se a altura não for suficiente, os elementos absolutos "vazarão" do main-content. */
-    min-height: 1200px; /* Adjusted based on typical absolute positioning */
-    /* If you have floating/absolute elements, ensure main-content has enough height to contain them */
-    /* You can also use padding-bottom on main-content if its absolute children extend far down */
-    padding-bottom: 50px; /* Add some padding to ensure content isn't cut off at the bottom */
+   
+    min-height: 1200px; 
+    padding-bottom: 50px;
 }
 
-/* Os elementos abaixo (imagem de fundo, texto, etc.) terão seus 'top's relativos ao '.main-content' */
+
 .main-background-image {
     width: 100%;
-    height: 1190px; /* Set height to be fully visible within main-content */
+    height: 1190px; 
     position: absolute;
     left: 0px;
-    top: 0px; /* Começa no topo do main-content */
+    top: 0px; 
     object-fit: cover;
-    z-index: 1; /* Para garantir que fique abaixo de outros elementos */
+    z-index: 1; 
 }
 
 .waiting-area-text {
     width: 400px;
     position: absolute;
     left: 22px;
-    top: 250px; /* Ajuste a posição Y relativa ao topo do .main-content */
+    top: 250px; 
     color: white;
     font-size: 15px;
     font-family: 'Inter', sans-serif;
@@ -155,52 +145,31 @@ body {
     height: 665px;
     position: absolute;
     left: 0px;
-    top: 200px; /* Ajuste a posição Y relativa ao topo do .main-content */
+    top: 200px; 
     object-fit: cover;
     z-index: 2;
 }
 
-/* --- Extra Images (Ainda com posições absolutas, mas veja os comentários sobre o 'top') --- */
-/* CRITICAL: The 'top' value for this image is causing issues.
-   If it's absolutely positioned *within the .container* (which is a flex-grow item),
-   its 'top' should be relative to the *top of the container*.
-   A value of 2150px would push it far beyond the typical content area.
-   It should likely be relative to .main-content's top, or moved to a different part of the HTML.
-   For now, I'm adjusting its 'top' to be relative to the *end of the content*.
-   If it should be at the very bottom of the container, before the footer,
-   it's better to place it in the HTML after main and before footer.
-   Alternatively, if it needs to be very far down, increase main-content's min-height significantly.
-*/
+
 .extra-image-2 {
     width: 131px;
     height: 131px;
     left: 28px;
-    /* This 'top' was likely pushing it off the page or below the footer.
-       If it needs to be near the bottom of the *visible content*, you must ensure
-       the .main-content (its assumed containing block if it's placed inside it or container)
-       has enough height. For now, I'm commenting it out as it's the most likely culprit
-       for the footer disappearing if the footer is fixed to the bottom of the viewport
-       and this image tries to position itself way down the page.
-       If it's meant to be at the very end of the *content*, consider placing it
-       after the main-content block in the HTML, not absolutely positioned.
-       If it must be absolute, its parent (likely .container or .main-content) needs enough height. */
-    /* top: 2150px; */ /* REMOVE OR drasitcally ADJUST THIS IF YOU WANT THE FOOTER TO BE VISIBLE */
-    position: absolute; /* Keep absolute if it needs to be precisely positioned relative to .container */
+  
+    position: absolute;
     border-radius: 65.50px;
     object-fit: cover;
     z-index: 3;
-    /* If you want it at the absolute bottom of the container (above the footer), use bottom: 0; */
-    /* bottom: 0; */
-    /* top: calc(100% - 131px - 50px); /* Example: 100% of parent height minus its own height minus some offset */
+    
 }
 
 
-/* --- Footer (Rodapé da página) --- */
+
 .footer {
     width: 100%;
     height: 236px;
     
-    /* Removed position: relative; and margin-top as flexbox handles positioning */
+    
     background: #940B0B;
     display: flex;
     justify-content: space-around;
@@ -211,7 +180,7 @@ body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     word-wrap: break-word;
-    flex-shrink: 0; /* Impede que o footer encolha se o espaço for limitado */
+    flex-shrink: 0; 
 }
 
 .footer-address {
@@ -222,12 +191,12 @@ body {
 }
 
 .footer-address a {
-    color: white; /* Cor branca para o link */
-    text-decoration: none; /* Remove o sublinhado padrão */
+    color: white; 
+    text-decoration: none; 
 }
 
 .footer-address a:hover {
-    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+    text-decoration: underline; 
 }
 
 .footer-hours {
